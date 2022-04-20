@@ -6,13 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/329ff049c0.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/egjs-jquery-transform/2.0.0/transform.min.js"></script>
+
+    <script>
+        $(function() {
+
+            $("#note").click(function() {
+                $("#noteZone").show();
+                $("#noteZone").css({
+                    display: "flex"
+                })
+            })
+
+            $(".close").click(function() {
+                $("#noteZone").hide();
+            })
+
+            $(".profile img").hover(function() {
+                $(this).animate({
+                    transform: "scale(1.2,1.2)"
+                })
+            }, function() {
+                $(this).animate({
+                    transform: "scale(1.0,1.0)"
+                })
+            });
+
+        })
+    </script>
 
     <style>
+        @font-face {
+            font-family: 'MinSans-Medium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         * {
             margin: 0 auto;
             padding: 0;
             list-style: none;
             text-decoration: none;
+            font-family: 'MinSans-Medium';
         }
         
         a {
@@ -24,17 +63,60 @@
             display: flex;
         }
         
+        #noteZone {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            text-align: center;
+            background-color: rgba(87, 87, 87, 0.5);
+            display: none;
+            align-items: center;
+            z-index: 3;
+        }
+        
+        #noteZone .text {
+            width: 700px;
+            background-color: rgb(245, 245, 220);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #noteZone .text p {
+            margin-bottom: 3%;
+        }
+        
+        #noteZone .text span {
+            font-weight: bolder;
+            color: coral;
+            cursor: pointer;
+        }
+        
+        #noteZone .text img {
+            float: left;
+            position: relative;
+            cursor: pointer;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        
         main {
             margin-top: 20px;
             width: 400px;
             background-color: #fff;
-            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
         }
         
         nav {
             width: 100%;
             height: 50px;
+        }
+        
+        nav i {
+            margin-top: 20px;
+            margin-left: 20px;
+            float: left;
+            cursor: pointer;
         }
         
         .profile {
@@ -65,27 +147,47 @@
             width: 80%;
             height: 50px;
             line-height: 50px;
-            border-bottom: 1px solid rgb(212, 212, 212);
+            border-bottom: 1px solid rgb(148, 148, 148);
         }
     </style>
 
 </head>
 
 <body>
+    <div id="noteZone">
+        <div class="text">
+            <img class="close" src="https://img.icons8.com/material-outlined/28/000000/delete-sign.png" />
+            <p>16살에 처음 자바를 통해 프로그래밍을 접했습니다</p>
+            <p>개발에 흥미를 가져 <span title="인천전자마이스터고등학교">인마고</span>에 입학하였습니다</p>
+            <p>인마고를 입학한 이유는 다름 아닌 <span title="현 전공심화동아리반">기능반</span></p>
+            <p>기능반에서 자바를 심층적으로 배웠지만 아쉽게도 테스트에서 떨어지게 되었습니다</p>
+            <p>슬럼프, 번아웃이 와서 텅빈 마음을 채워준것은 웹이였습니다</p>
+            <p>웹을 처음 하면서 16살에 느낀 열정이 다시 느껴졌습니다</p>
+            <p>2년 가까이 되는 시간동안 웹에 관련된, <span title="flex, jq, 패럴랙스, 인터랙티브 등등">관심</span>이 가는 것들을 했습니다</p>
+            <p>프로그래밍이 일처럼 느껴지면 안된다 생각하여 </p>
+            <p>다른 것들을 찾아보며 제 자신이 즐거운 프로그래밍을 하고 있습니다</p>
+            <p>아직 제 자신이 부족하다 생각하지만</p>
+            <p>자기 자신한테 당당해질 수 있는 사람이 되는것이 목표입니다</p>
+        </div>
+    </div>
     <main>
-        <nav><a href="#"><i class="far fa-sticky-note"></i></a></nav>
+        <nav>
+            <i class="far fa-sticky-note" id="note"></i>
+        </nav>
         <article class="profile">
-            <img src="img/65019433.jfif" alt="">
+            <img src="img/65019433.jfif">
             <h1>
-                Kim Chanwoong
+                Kim Chan Woong
             </h1>
             <h4>
                 age : 2004 <br> web developer
             </h4>
         </article>
         <ul>
-            <li><a href="http://intec.icehs.kr/" target="blank">visit highschool homepage</a></li>
-            <li><a href="https://github.com/larus-harir" target="blank">visit github</a></li>
+            <li><a href="http://intec.icehs.kr/" target="blank">visit HighSchool homepage</a></li>
+            <li>
+                <a href="https://github.com/larus-harir" target="blank">visit github</a>
+            </li>
         </ul>
     </main>
 
