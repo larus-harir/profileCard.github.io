@@ -16,7 +16,7 @@
 
             $("#note").click(function() {
                 $("#noteZone").show();
-                $("#noteZone").css({
+                $("#noteZone").stop().css({
                     display: "flex"
                 })
             })
@@ -26,11 +26,11 @@
             })
 
             $(".profile img").hover(function() {
-                $(this).animate({
+                $(this).stop().animate({
                     transform: "scale(1.2,1.2)"
                 })
             }, function() {
-                $(this).animate({
+                $(this).stop().animate({
                     transform: "scale(1.0,1.0)"
                 })
             });
